@@ -25,6 +25,7 @@ RUN rm -rf jre-8u77-linux-x64.rpm
 RUN cp -R /home/wildfly/wildfly-10.0.0.Final/standalone/deployments /home/wildfly
 
 VOLUME ["/home/wildfly/wildfly-10.0.0.Final/standalone/deployments"]
+VOLUME ["/home/wildfly/wildfly-10.0.0.Final"]
 
 CMD ["/home/wildfly/wildfly-10.0.0.Final/bin/standalone.sh", "-b", "0.0.0.0", "-bmanagement", "0.0.0.0"]
 

@@ -26,3 +26,10 @@ sudo docker build -t kuldeeparyadotcom/wildfly:snapshot .
 
 #Run Wildfly
 sudo docker run --name mywildfly -p 8080:8080 -p 9990:9990 -d kuldeeparyadotcom/wildfly:snapshot
+
+#Build Image for a CentOS sshd daemon
+cd /vagrant/Dockerfile/sshd/
+sudo docker build -t kuldeeparyadotcom/sshd:snapshot
+
+#Run a CentOS Container responsible for interacting mywildfly container over SSH
+sudo docker run --name myssh -p 2222:22 --volumes-from mywildfly -d kuldeeparyadotcom/sshd:snapshot
